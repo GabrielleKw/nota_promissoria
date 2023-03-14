@@ -26,7 +26,6 @@ function carregarNota() {
     var estado = document.getElementById('estado').value;
     var numero = document.getElementById('numero').value;
     var bairro = document.getElementById('bairro').value;
-    var obs = document.getElementById('obs').value;
     var referencia = document.getElementById('referencia').value;
     var quantidadeNotas = document.getElementById('quantidade').value != '' ? document.getElementById('quantidade').value : 1;
     for (var i = 1; i <= quantidadeNotas; i++) {
@@ -36,20 +35,18 @@ function carregarNota() {
         </p>\
         <p>Vencimento: <b>'+ primeiroVencimento + '</b>.</p>\
         <p><b>R$ '+ extenso(valorNota) + '</b></p>\
-        <p>No dia <b >'+ primeiroVencimento + '</b> pagarei por esta via de NOTA PROMISSÓRIA a <b class="background">' + nomeCredor + '</b>, CPF (ou CNPJ) nº ' + cpfCnpjCredor + ' ou a sua ordem a quantia de ' + valorNota + ' reais ou à sua ordem, a quantia de '+ extenso(valorNota) + ' em moeda corrente desse país.  </p>\
-        <p> </p>\
-        <p>Praça de pagamento: ' + cidade + ' / ' + estado + '.</p>\
+        <p>No dia <b >'+ primeiroVencimento + '</b> pagarei por esta via de NOTA PROMISSÓRIA a <b class="background">' + nomeCredor + '</b>, CPF (ou CNPJ) nº ' + cpfCnpjCredor + ' ou a sua ordem a quantia de ' + extenso(valorNota) + ' reais.</p>\
+        <p>Pagável na Rua '+ rua + ', nº ' + numero + ' - ' + bairro + ' na cidade de ' + cidade + ' - ' + estado + '.</p>\
+        <p>Emitente: '+ nomeDevedor + ', CPF (ou CNPJ) nº ' + cpfCnpjDevedor + ', com endereço à Rua ' + rua + ', nº ' + numero + ' - ' + bairro + ' na cidade de ' + cidade + ' - ' + estado + ' - CEP ' + cep + '.</p>\
         <p>'+ cidade + ' - ' + estado + ', ' + emissao + '.</p>\
-        <p>Emitente: '+ nomeDevedor + '.</p>\
-        <p>CPF (ou CNPJ) nº ' + cpfCnpjDevedor + '.</p>\
-        <p> Rua '+ rua + ', nº ' + numero + ' - ' + bairro + ' na cidade de ' + cidade + ' - ' + estado + ' . Referência: '+ referencia + '.</p>\
-        <p>Observação: '+ obs + '</p>\
+        <p>Referência: '+ referencia + '</p>\
         <hr style="margin-left: 10%; margin-right: 10%; margin-top: 10%;">\
         <p style="text-align: center;">'+ nomeDevedor + '</p>\
     </div>\
     <br>';
     }
 
+    // document.getElementById('nota').appendChild(nota);
     document.querySelector("#nota").innerHTML = nota;
 }
 
@@ -57,10 +54,10 @@ function carregarNota() {
 function extenso(vlr) {
 
     var Num = parseFloat(vlr);
-    var inteiro = parseInt(vlr); 
+    var inteiro = parseInt(vlr); // parte inteira do valor
     if (inteiro < 1000000000000000) {
 
-        var resto = Num.toFixed(2) - inteiro.toFixed(2);       
+        var resto = Num.toFixed(2) - inteiro.toFixed(2);       // parte fracionária do valor
         resto = resto.toFixed(2)
         var vlrS = inteiro.toString();
 
@@ -206,6 +203,18 @@ function mascaras(i, t) {
         if (v.length == 5) i.value += "-";
     }
 
+    if (t == "cpf") {
+        i.setAttribute("maxlength", "14");
+        if (v.length == 3 || v.length == 7) i.value += ".";
+        if (v.length == 11) i.value += "-";
+    }
+
+    if (t == "cnpj") {
+        i.setAttribute("maxlength", "18");
+        if (v.length == 2 || v.length == 6) i.value += ".";
+        if (v.length == 10) i.value += "/";
+        if (v.length == 15) i.value += "-";
+    }
 
     if (t == "tel") {
         if (v[0] == 9) {
