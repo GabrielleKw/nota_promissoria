@@ -39,7 +39,7 @@ body{
 }
 
 .input-text{
-    border: 1px solid #c6c6c6; display: inline-block; box-sizing: border-box;
+    border: 1px solid #f812b3; display: inline-block; box-sizing: border-box;
     border-width: 1px;
     margin-right: 100%;
     border-radius: 5px;
@@ -48,7 +48,7 @@ body{
 }
 
 .content{
-    background-color: white;
+    background-color: rgb(180, 180, 252);
     padding: 10px;
 }
 
