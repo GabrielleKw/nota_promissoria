@@ -21,18 +21,11 @@
                 </div>
                 <div class="column w-75">
                     <div class="content">
-                        <label class="label-input">CPF do Credor</label>
-                        <input class="input-text" oninput="mascaras(this, 'cpf')" style="padding-right: 10%;" type="text"
-                            id="cpfCredor" >
+                        <label class="label-input">CPF/CNPJ Credor </label>
+                        <input class="input-text" style="padding-right: 10%;" type="number" placeholder="Digite apenas números."  id="cpfCredor" >
                     </div>
                 </div>
-                <div class="column w-75">
-                    <div class="content">
-                        <label class="label-input">CNPJ do Credor</label>
-                        <input class="input-text" oninput="mascaras(this, 'cnpj')" style="padding-right: 10%;" type="text"
-                            id="cnpjCredor" >
-                    </div>
-                </div>
+                
             </div>
             <div class="row">
                 <div class="column">
@@ -60,6 +53,9 @@
                     </div>
                 </div>
             </div>
+
+
+
             <h3 class="pl-40 pr-0">Dados Devedor</h3>
             <div class="row">
                 <div class="column w-75">
@@ -70,18 +66,12 @@
                 </div>
                 <div class="column w-75">
                     <div class="content">
-                        <label>CPF do devedor</label>
-                        <input class="input-text" oninput="mascaras(this, 'cpf')" style="padding-right: 10%;" type="text"
+                        <label>CPF/CNPJ do devedor</label>
+                        <input class="input-text"  style="padding-right: 10%;" placeholder="Digite apenas números." type="text"
                             id="cpfDevedor">
                     </div>
                 </div>
-                <div class="column w-75">
-                    <div class="content">
-                        <label>CNPJ do devedor</label>
-                        <input class="input-text" oninput="mascaras(this, 'cnpj')" style="padding-right: 10%;" type="text"
-                            id="cnpjDevedor" >
-                    </div>
-                </div>
+                
             </div>
             <div class="row">
                 <div class="column">
@@ -93,7 +83,7 @@
                 <div class="column">
                     <div class="content">
                         <label>Rua</label>
-                        <input class="input-text" type="text" id="rua" >
+                        <input class="input-text" type="text"  id="rua" >
                     </div>
                 </div>
                 <div class="column">
@@ -158,6 +148,17 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="column w-50">
+                    <div class="content">
+                        <label>Observação </label>
+                        <input class="input-text" type="text" style="padding-right: 100%;" id="obs" >
+                    </div>
+                </div>
+            </div>
+
+
+
             <button class="btn btn-center" type="button" onclick="carregarNota()">Emitir Nota Promissoria</button>
         </div>
         <br>
