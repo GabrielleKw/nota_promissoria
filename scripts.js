@@ -57,10 +57,10 @@ function carregarNota() {
 function extenso(vlr) {
 
     var Num = parseFloat(vlr);
-    var inteiro = parseInt(vlr); // parte inteira do valor
+    var inteiro = parseInt(vlr); 
     if (inteiro < 1000000000000000) {
 
-        var resto = Num.toFixed(2) - inteiro.toFixed(2);       // parte fracionária do valor
+        var resto = Num.toFixed(2) - inteiro.toFixed(2);       
         resto = resto.toFixed(2)
         var vlrS = inteiro.toString();
 
